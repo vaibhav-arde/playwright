@@ -17,3 +17,10 @@ test('Page Playwright test', async ({page}) => {
     await expect(page).toHaveTitle(/LoginPage Practise | Rahul Shetty Academy/);
 
 });
+
+test.only('Locators in Playwright test', async ({page}) => {
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    await page.locator('#username').fill("rahulshetty")
+    await page.locator('[type="password"]').fill("learning")
+    await page.locator("#signInBtn").click()
+});

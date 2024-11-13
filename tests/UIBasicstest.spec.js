@@ -90,7 +90,7 @@ test.only('UI Controls in Playwright', async ({page}) => {
     await userRadioBtn.click()
     await expect(userRadioBtn).toBeChecked()
     expect(await checkbox.isChecked()).toBeFalsy()
-    await page.locator("#terms").click()
+    await checkbox.click()
     // await checkbox.click()
     expect(await checkbox.isChecked()).toBeTruthy()
     await page.waitForTimeout(2000)

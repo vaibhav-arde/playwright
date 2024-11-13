@@ -27,7 +27,7 @@ test('Locators in Playwright test', async ({page}) => {
     await expect(page.locator("[style*='block']")).toContainText('Incorrect')
 });
 
-test.only('Define locators in Playwright test', async ({page}) => {
+test('Define locators in Playwright test', async ({page}) => {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     const username = await page.locator('#username')
     const password = await page.locator('[type="password"]')
@@ -38,4 +38,20 @@ test.only('Define locators in Playwright test', async ({page}) => {
     await signInBtn.click()
     console.log(await messageBlock.textContent())
     await expect(messageBlock).toContainText('Incorrect username/password.')
+});
+
+test.only('Handle multiple elements for single locator in Playwright test', async ({page}) => {
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    const username = await page.locator('#username')
+    const password = await page.locator('[type="password"]')
+    const signInBtn = await page.locator("#signInBtn")
+    const messageBlock = await page.locator("[style*='block']")
+    const productHeader = await page.locator(".card-body a")
+    await username.fill("rahulshettyacademy")
+    await password.fill("learning")
+    await signInBtn.click()
+    // console.log(await messageBlock.textContent())
+    // await expect(messageBlock).toContainText('Incorrect username/password.')
+    console.log(await productHeader.first().textContent())
+    console.log(await productHeader.nth(1).textContent())
 });

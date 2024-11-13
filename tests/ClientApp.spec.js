@@ -1,6 +1,6 @@
 const {test, expect} = require('@playwright/test')
 
-test.only('allTextContents wait mechanism in Playwright', async ({page}) => {
+test('allTextContents wait mechanism in Playwright', async ({page}) => {
     await page.goto("https://rahulshettyacademy.com/client/");
     const userEmail = await page.locator('#userEmail')
     const password = await page.locator('[type="password"]')
@@ -18,3 +18,4 @@ test.only('allTextContents wait mechanism in Playwright', async ({page}) => {
     await page.waitForLoadState('networkidle')
     console.log(await productHeader.allTextContents())
 });
+

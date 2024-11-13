@@ -73,3 +73,22 @@ test('How wait mechanism work in Playwright', async ({page}) => {
     // console.log(await productHeader.nth(1).textContent())
     console.log(await productHeader.allTextContents())
 });
+
+test.only('UI Controls in Playwright', async ({page}) => {
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    const username = await page.locator('#username')
+    const password = await page.locator('[type="password"]')
+    const signInBtn = await page.locator("#signInBtn")
+    const messageBlock = await page.locator("[style*='block']")
+    const dropdown = await page.locator("select.form-control")
+    const userRadioBtn = await page.locator("input[type=radio][value=user]")
+    await username.fill("rahulshetty")
+    await password.fill("learning")
+    await dropdown.selectOption("consult")
+    await userRadioBtn.click()
+
+    await page.waitForTimeout(2000)
+    // await signInBtn.click()
+    // console.log(await messageBlock.textContent())
+    // await expect(messageBlock).toContainText('Incorrect username/password.')
+});

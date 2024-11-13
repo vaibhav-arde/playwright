@@ -5,8 +5,8 @@ const {test, expect} = require('@playwright/test')
 // });
 
 test('Browser Context Playwright test', async ({browser}) => {
-    const context = await browser.newContext();
-    const page = await context.newPage();
+    const context = browser.newContext();
+    const page = context.newPage();
     await page.goto("https://google.com");
     console.log(await page.title());
 });
@@ -29,10 +29,10 @@ test('Locators in Playwright test', async ({page}) => {
 
 test('Define locators in Playwright test', async ({page}) => {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
-    const username = await page.locator('#username')
-    const password = await page.locator('[type="password"]')
-    const signInBtn = await page.locator("#signInBtn")
-    const messageBlock = await page.locator("[style*='block']")
+    const username = page.locator('#username')
+    const password = page.locator('[type="password"]')
+    const signInBtn = page.locator("#signInBtn")
+    const messageBlock = page.locator("[style*='block']")
     await username.fill("rahulshetty")
     await password.fill("learning")
     await signInBtn.click()
@@ -42,11 +42,11 @@ test('Define locators in Playwright test', async ({page}) => {
 
 test('Handle multiple elements for single locator in Playwright test', async ({page}) => {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
-    const username = await page.locator('#username')
-    const password = await page.locator('[type="password"]')
-    const signInBtn = await page.locator("#signInBtn")
-    const messageBlock = await page.locator("[style*='block']")
-    const productHeader = await page.locator(".card-body a")
+    const username = page.locator('#username')
+    const password = page.locator('[type="password"]')
+    const signInBtn = page.locator("#signInBtn")
+    const messageBlock = page.locator("[style*='block']")
+    const productHeader = page.locator(".card-body a")
     await username.fill("rahulshettyacademy")
     await password.fill("learning")
     await signInBtn.click()
@@ -59,11 +59,11 @@ test('Handle multiple elements for single locator in Playwright test', async ({p
 
 test('How wait mechanism work in Playwright', async ({page}) => {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
-    const username = await page.locator('#username')
-    const password = await page.locator('[type="password"]')
-    const signInBtn = await page.locator("#signInBtn")
-    const messageBlock = await page.locator("[style*='block']")
-    const productHeader = await page.locator(".card-body a")
+    const username =  page.locator('#username')
+    const password = page.locator('[type="password"]')
+    const signInBtn = page.locator("#signInBtn")
+    const messageBlock = page.locator("[style*='block']")
+    const productHeader = page.locator(".card-body a")
     await username.fill("rahulshettyacademy")
     await password.fill("learning")
     await signInBtn.click()
@@ -74,15 +74,15 @@ test('How wait mechanism work in Playwright', async ({page}) => {
     console.log(await productHeader.allTextContents())
 });
 
-test.only('UI Controls in Playwright', async ({page}) => {
+test('UI Controls in Playwright', async ({page}) => {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
-    const username = await page.locator('#username')
-    const password = await page.locator('[type="password"]')
-    const signInBtn = await page.locator("#signInBtn")
-    const messageBlock = await page.locator("[style*='block']")
-    const dropdown = await page.locator("select.form-control")
-    const userRadioBtn = await page.locator("input[type=radio][value=user]")
-    const checkbox = await page.locator("#terms")
+    const username = page.locator('#username')
+    const password = page.locator('[type="password"]')
+    const signInBtn = page.locator("#signInBtn")
+    const messageBlock = page.locator("[style*='block']")
+    const dropdown = page.locator("select.form-control")
+    const userRadioBtn = page.locator("input[type=radio][value=user]")
+    const checkbox = page.locator("#terms")
     await username.fill("rahulshetty")
     await password.fill("learning")
     await dropdown.selectOption("consult")
@@ -97,4 +97,12 @@ test.only('UI Controls in Playwright', async ({page}) => {
     // await signInBtn.click()
     // console.log(await messageBlock.textContent())
     // await expect(messageBlock).toContainText('Incorrect username/password.')
+});
+
+
+test('Validate attribute in Playwright', async ({page}) => {
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    const documentLink = page.locator("a[href*='documents-request']")
+
+    await expect(documentLink).toHaveAttribute("class", "blinkingText");
 });

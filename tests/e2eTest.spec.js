@@ -25,7 +25,7 @@ test('@Client App login', async ({ page }) => {
    //await page.pause();
  
    await page.locator("div li").first().waitFor();
-   const bool = await page.locator("h3:has-text('zara coat 3')").isVisible();
+   const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
    expect(bool).toBeTruthy();
    await page.locator("text=Checkout").click();
  
@@ -50,7 +50,7 @@ test('@Client App login', async ({ page }) => {
 })
 
 
-test.only('@Web Client App login', async ({ page }) => {
+test('@Web Client App login', async ({ page }) => {
     //js file- Login js, DashboardPage
     const email = "anshika@gmail.com";
     const productName = 'ZARA COAT 3';

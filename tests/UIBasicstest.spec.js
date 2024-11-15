@@ -106,3 +106,21 @@ test('Validate attribute in Playwright', async ({page}) => {
 
     await expect(documentLink).toHaveAttribute("class", "blinkingText");
 });
+
+test.only('handling child windows and new tabs in Playwright', async ({page}) => {
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    const documentLink = page.locator("a[href*='documents-request']");
+
+    await expect(documentLink).toHaveAttribute("class", "blinkingText");
+    const [newPage] = await Promise.all([
+        page.waitForEvent('popup'),
+        documentLink.click()
+    ])
+
+    const redText = await newPage.locator("p.red").textContent();
+    const arrayText = redText.split("@")
+    const domainName = arrayText[1].split(" ")[0]
+    console.log("redText", redText);
+    console.log("domainName", domainName);
+
+});

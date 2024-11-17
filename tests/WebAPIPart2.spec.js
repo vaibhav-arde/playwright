@@ -14,10 +14,6 @@ test.beforeAll(async ({ browser }) => {
     await page.waitForLoadState('networkidle');
     await context.storageState({ path: 'state.json' });
     webContext = await browser.newContext({ storageState: 'state.json' });
-
-
-
-
 })
 
 test('@QA Client App login', async () => {
@@ -73,9 +69,8 @@ test('@QA Client App login', async () => {
     }
     const orderIdDetails = await page.locator(".col-text").textContent();
     expect(orderId.includes(orderIdDetails)).toBeTruthy();
-
-
 });
+
 test('@API Test case 2', async () => {
     const email = "";
     const productName = 'iphone 13 pro';
@@ -85,7 +80,6 @@ test('@API Test case 2', async () => {
     const products = page.locator(".card-body");
     const titles = await page.locator(".card-body b").allTextContents();
     console.log(titles);
-
 })
 
 

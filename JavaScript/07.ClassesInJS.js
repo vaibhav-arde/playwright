@@ -1,6 +1,6 @@
 // Class
 
-class Person{
+module.exports = class Person{
     constructor(firstName, lastName){
         this.firstName = firstName
         this.lastName =  lastName
@@ -14,8 +14,8 @@ class Person{
     }
 }
 
-let person = new Person("VaibhaV", "Arde")
-console.log(person.age)
-console.log(person.location)
-console.log(person.fullName())
+// let person = new Person("VaibhaV", "Arde")
+// console.log(person.age)
+// console.log(person.location)
+// console.log(person.fullName())
 

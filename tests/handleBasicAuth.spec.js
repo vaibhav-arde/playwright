@@ -17,8 +17,8 @@ test('Basic Authentication Example', async ({ browser }) => {
 
     // Verify the authentication worked
     const responseText = await page.textContent('body');
-    expect(responseText).toContain('authenticated');
-    // expect(responseText).toContain('Congratulations');
+    // expect(responseText).toContain('authenticated');
+    expect(responseText).toContain('Congratulations');
 
     // Close the context
     await context.close();

@@ -41,3 +41,46 @@
 // console.log(affordableProducts)
 // const affordableProductsCosts = affordableProducts.reduce((sum, price) => sum+price, 0)
 // console.log(affordableProductsCosts)
+
+// function deduplicateMessages(messages, windowSize) {
+//     if (!Array.isArray(messages) || messages.length === 0 || windowSize <= 0) {
+//       return [];
+//     }
+  
+//     // Step 1: Sort messages by timestamp in ascending order
+//     messages.sort((a, b) => a.timestamp - b.timestamp);
+  
+//     const uniqueMessages = new Map(); // To store the latest occurrence of each message ID
+//     const latestTimestamp = messages[messages.length - 1].timestamp; // Find the latest timestamp
+  
+//     for (let i = messages.length - 1; i >= 0; i--) {
+//       const { id, timestamp } = messages[i];
+  
+//       // Step 2: Ignore messages outside the time window
+//       if (latestTimestamp - timestamp > windowSize) {
+//         break;
+//       }
+  
+//       // Step 3: Add the message to the Map if it's not already present
+//       if (!uniqueMessages.has(id)) {
+//         uniqueMessages.set(id, { id, timestamp });
+//       }
+//     }
+  
+//     // Step 4: Extract the values from the Map and sort them by timestamp
+//     const result = Array.from(uniqueMessages.values())
+//       .sort((a, b) => a.timestamp - b.timestamp)
+//       .map((msg) => msg.id);
+  
+//     return result;
+//   }
+  
+//   console.log(deduplicateMessages([{id: 'msg1', timestamp: 100}, {id: 'msg2', timestamp: 101}, {id: 'msg1', timestamp: 102}], windowSize = 5))
+
+let a= "• Led a successful 10-month Data Science course, equipping students with in-demand skills like Python, Machine Learning, Deep Learning, Statistics, NLP , Computer Vision."
+let b = "• This comprehensive program prepared numerous students for career in Data Science and Artificial Intelligence."
+let c = "Led a 10-month Data Science course, teaching Python, Machine Learning, Deep Learning, NLP, Computer Vision, and Statistics. Equipped students with in-demand skills, preparing them for careers in Data Science and AI with a focus on practical and industry-relevant expertise."
+console.log(c.length)
+console.log(a.length)
+console.log(b.length)
+console.log(a.length + b.length)

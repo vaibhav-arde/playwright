@@ -3,7 +3,8 @@ import { webkit, chromium, firefox } from 'playwright'
 
 test('Basic auth test', async () => {
     // const browser: Browser = await firefox.launch({headless: false});
-    const browser = await firefox.launch({ headless: false });
+    // const browser = await firefox.launch({ headless: false });
+    const browser = await chromium.launch({ headless: false, channel: 'chrome' });
     // const context: BrowserContext await browser.newContext();
     const context = await browser.newContext();
 
@@ -17,6 +18,8 @@ test('Basic auth test', async () => {
     page.setExtraHTTPHeaders({ Authorization: createAuthHeader(username, password) });
 
     await page.goto('https://the-internet.herokuapp.com/basic_auth');
+
+    await page.pause()
 })
 
 function createAuthHeader(username, password) {

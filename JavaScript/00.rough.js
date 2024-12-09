@@ -6,6 +6,7 @@
 // expenses = [12, 93, 24, 25, 56]
 // totalExpenses = expenses.reduce((sum, itemCost) => sum + itemCost , 0)
 // console.log(totalExpenses)
+// console.log(...expenses)
 // console.log(Math.max(...expenses))
 // console.log(Math.min(...expenses))
 
@@ -77,10 +78,10 @@
   
 //   console.log(deduplicateMessages([{id: 'msg1', timestamp: 100}, {id: 'msg2', timestamp: 101}, {id: 'msg1', timestamp: 102}], windowSize = 5))
 
-let a= "• Led a successful 10-month Data Science course, equipping students with in-demand skills like Python, Machine Learning, Deep Learning, Statistics, NLP , Computer Vision."
-let b = "• This comprehensive program prepared numerous students for career in Data Science and Artificial Intelligence."
-let c = "Led a 10-month Data Science course, teaching Python, Machine Learning, Deep Learning, NLP, Computer Vision, and Statistics. Equipped students with in-demand skills, preparing them for careers in Data Science and AI with a focus on practical and industry-relevant expertise."
-console.log(c.length)
-console.log(a.length)
-console.log(b.length)
-console.log(a.length + b.length)
+// let a= "• Led a successful 10-month Data Science course, equipping students with in-demand skills like Python, Machine Learning, Deep Learning, Statistics, NLP , Computer Vision."
+// let b = "• This comprehensive program prepared numerous students for career in Data Science and Artificial Intelligence."
+// let c = "Led a 10-month Data Science course, teaching Python, Machine Learning, Deep Learning, NLP, Computer Vision, and Statistics. Equipped students with in-demand skills, preparing them for careers in Data Science and AI with a focus on practical and industry-relevant expertise."
+// console.log(c.length)
+// console.log(a.length)
+// console.log(b.length)
+// console.log(a.length + b.length)

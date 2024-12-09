@@ -83,3 +83,6 @@ console.log("Sort scores.sort()", scores.sort())
 console.log("Sort asceding scores.sort((a, b) => a-b)", scores.sort((a, b) => a-b))
 console.log("Sort descending scores.sort((a, b) => b-a)", scores.sort((a, b) => b-a))
 
+let name ="VaibhaV"
+
+name.split("").forEach( char => console.log(char));
